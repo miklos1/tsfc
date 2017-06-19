@@ -6,7 +6,7 @@ from __future__ import absolute_import, print_function, division
 
 from collections import defaultdict
 from functools import reduce
-from math import isnan
+from cmath import isnan
 import itertools
 
 import numpy
