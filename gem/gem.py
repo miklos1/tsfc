@@ -27,8 +27,6 @@ from numpy import asarray
 
 from gem.node import Node as NodeBase
 
-from tsfc.parameters import numpy_type
-
 
 __all__ = ['Node', 'Identity', 'Literal', 'Zero', 'Failure', 'ComplexPartsFunction',
            'Variable', 'Sum', 'Product', 'Division', 'Power',
@@ -163,7 +161,8 @@ class Literal(Constant):
             return super(Literal, cls).__new__(cls)
 
     def __init__(self, array):
-        self.array = asarray(array, dtype=numpy_type()) # import numpy_type()
+        from tsfc.parameters import numpy_type
+        self.array = asarray(array, dtype=numpy_type())
 
     def is_equal(self, other):
         if type(self) != type(other):
